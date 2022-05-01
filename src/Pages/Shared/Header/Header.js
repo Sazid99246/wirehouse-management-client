@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <Navbar expand="lg">
-            <Container fluid>
-                <Navbar.Brand href="#">Sazid's PC Shop</Navbar.Brand>
+            <Container>
+                <Navbar.Brand as={Link} to="/">Sazid's PC Inventory</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
