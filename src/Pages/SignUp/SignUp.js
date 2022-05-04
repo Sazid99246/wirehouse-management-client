@@ -1,9 +1,61 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 const SignUp = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    if (user) {
+        navigate('/login')
+    }
+    const handleCreateUser = event => {
+        event.preventDefault();
+    }
     return (
         <div>
-            <h2>This is sign up</h2>
+            <h2 className='text-primary text-center'>Please Sign Up</h2>
+            <Form onSubmit={handleCreateUser} className='w-50 mx-auto'>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter your name" required
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        required
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                    />
+                </Form.Group>
+                <Button
+                    onClick={() => createUserWithEmailAndPassword(email, password)}
+                    variant="primary"
+                    type="submit"
+                >
+                    Register
+                </Button>
+                <p>Already a user?
+                    <Link to='/login'>Please login</Link>    
+                </p>
+            </Form>
         </div>
     );
 };
