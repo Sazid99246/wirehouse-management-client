@@ -10,7 +10,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
-    <div>
+    <div className='min-vh-100 d-flex flex-column'>
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
