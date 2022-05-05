@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -9,6 +10,7 @@ const SignUp = () => {
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
     if (user) {
+        signOut(auth)
         navigate('/login')
     }
     const handleCreateUser = event => {

@@ -1,9 +1,11 @@
 import React from 'react';
+import Products from './Products/Products';
 
 const Inventory = () => {
     return (
         <div>
-            <h2>This is Inventory</h2>
+            <h2 className='text-center'>Choose your favourite products</h2>
+            <Products/>
         </div>
     );
 };
