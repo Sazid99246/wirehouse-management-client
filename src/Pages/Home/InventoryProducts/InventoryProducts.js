@@ -24,7 +24,7 @@ const InventoryProducts = () => {
                 }
             </Row>
             <div className='text-center'>
-                <Button onClick={()=>navigate('/inventory')} className='mx-auto my-3' variant='outline-primary'>Show All</Button>
+                <Button onClick={()=>navigate('/inventory')} className='mx-auto my-3' variant='outline-primary'>Manage Inventories</Button>
             </div>
         </Container>
     );

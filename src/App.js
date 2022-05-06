@@ -7,8 +7,8 @@ import Inventory from './Pages/Inventory/Inventory';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import Footer from './Pages/Shared/Footer/Footer';
-import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import ProductDetail from './Pages/Inventory/ProudctDetail/ProductDetail';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -17,7 +17,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/inventory' element={<Inventory />}></Route>
-        <Route path='/inventory/:id' element={<RequireAuth><ProductDetail /></RequireAuth>}></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <ProductDetail />
+          </RequireAuth>}
+        >
+        </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
       </Routes>

@@ -10,7 +10,7 @@ const ProductDetail = () => {
         fetch(`https://desolate-island-13153.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProudct(data))
-    }, [])
+    }, [id])
 
     return (
         <div>

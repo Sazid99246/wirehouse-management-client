@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import GoogleLogin from './GoogleLogIn/GoogleLogin';
 
@@ -11,11 +11,14 @@ const Login = () => {
     const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
+    let location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+
     const handleSignIn = event => {
         event.preventDefault();
     }
     if (user) {
-        navigate('/')
+        navigate(from, {replace: true})
     }
     return (
         <div>
