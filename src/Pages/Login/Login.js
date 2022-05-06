@@ -17,9 +17,6 @@ const Login = () => {
     if (user) {
         navigate('/')
     }
-    if(!user){
-        navigate('/login')
-    }
     return (
         <div>
             <h2 className='text-primary text-center'>Please Login</h2>
