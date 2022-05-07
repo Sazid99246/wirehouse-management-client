@@ -10,6 +10,8 @@ import Footer from './Pages/Shared/Footer/Footer';
 import ProductDetail from './Pages/Inventory/ProudctDetail/ProductDetail';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import AddItems from './Pages/AddItems/AddItems';
+import Blog from './Pages/Blog/Blog';
+import ManageItems from './Pages/ManageItems/ManageItems';
 
 function App() {
   return (
@@ -30,6 +32,13 @@ function App() {
           </RequireAuth>}
         >
         </Route>
+        <Route path='/manageitem' element={
+          <RequireAuth>
+            <ManageItems />
+          </RequireAuth>}
+        >
+        </Route>
+        <Route path='/blog' element={<Blog/>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
       </Routes>

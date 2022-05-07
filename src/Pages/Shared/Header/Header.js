@@ -25,13 +25,14 @@ const Header = () => {
                     <Nav className="d-flex">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/inventory">Inventory</Nav.Link>
-
+                        <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
                         {
                             user ?
                                 <Nav className='d-flex'>
-                                    <Nav.Link>Manage Items</Nav.Link>
+                                    <Nav.Link as={Link} to='/manageitem'>Manage Items</Nav.Link>
                                     <Nav.Link as={Link} to='/additem'>Add Item</Nav.Link>
                                     <Nav.Link>My Items</Nav.Link>
+                                    signed in as <br /> {user.email}
                                     <button onClick={handleSignOut}>Log out</button>
                                 </Nav>
                                 :
@@ -39,7 +40,6 @@ const Header = () => {
                                     <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
                                     <Nav.Link as={Link} to="/login">Login</Nav.Link>
                                 </Nav>
-
                         }
                     </Nav>
                 </Navbar.Collapse>
