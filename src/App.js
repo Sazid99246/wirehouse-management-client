@@ -9,6 +9,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import Footer from './Pages/Shared/Footer/Footer';
 import ProductDetail from './Pages/Inventory/ProudctDetail/ProductDetail';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
+import AddItems from './Pages/AddItems/AddItems';
 
 function App() {
   return (
@@ -20,6 +21,12 @@ function App() {
         <Route path='/inventory/:id' element={
           <RequireAuth>
             <ProductDetail />
+          </RequireAuth>}
+        >
+        </Route>
+        <Route path='/additem' element={
+          <RequireAuth>
+            <AddItems />
           </RequireAuth>}
         >
         </Route>

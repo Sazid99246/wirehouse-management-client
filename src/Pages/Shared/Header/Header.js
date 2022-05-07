@@ -25,19 +25,22 @@ const Header = () => {
                     <Nav className="d-flex">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/inventory">Inventory</Nav.Link>
-                        <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
+
                         {
                             user ?
                                 <Nav className='d-flex'>
                                     <Nav.Link>Manage Items</Nav.Link>
-                                    <Nav.Link>Add Item</Nav.Link>
+                                    <Nav.Link as={Link} to='/additem'>Add Item</Nav.Link>
                                     <Nav.Link>My Items</Nav.Link>
-                                    <button onClick={handleSignOut}>Log out</button>                        
+                                    <button onClick={handleSignOut}>Log out</button>
                                 </Nav>
                                 :
-                                <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                        }
+                                <Nav>
+                                    <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
+                                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                </Nav>
 
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -20,7 +20,7 @@ const InventoryProducts = () => {
                 {
                     sixProducts.map(product => <InventoryProduct
                         product={product}
-                        key="_id"></InventoryProduct>)
+                        key={product._id}></InventoryProduct>)
                 }
             </Row>
             <div className='text-center'>
