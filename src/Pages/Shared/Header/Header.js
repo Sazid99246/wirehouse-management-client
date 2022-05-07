@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import CustomLink from '../../CustomLink/CustomLink';
 
 const Header = () => {
     const [user] = useAuthState(auth)
@@ -23,22 +24,22 @@ const Header = () => {
                     >
                     </Nav>
                     <Nav className="d-flex">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/inventory">Inventory</Nav.Link>
-                        <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+                        <Nav.Link as={CustomLink} to="/">Home</Nav.Link>
+                        <Nav.Link as={CustomLink} to="/inventory">Inventory</Nav.Link>
+                        <Nav.Link as={CustomLink} to="/blog">Blog</Nav.Link>
                         {
                             user ?
                                 <Nav className='d-flex'>
-                                    <Nav.Link as={Link} to='/manageitem'>Manage Items</Nav.Link>
-                                    <Nav.Link as={Link} to='/additem'>Add Item</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/manageitem'>Manage Items</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/additem'>Add Item</Nav.Link>
                                     <Nav.Link>My Items</Nav.Link>
                                     signed in as <br /> {user.email}
                                     <button onClick={handleSignOut}>Log out</button>
                                 </Nav>
                                 :
                                 <Nav>
-                                    <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
-                                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                    <Nav.Link as={CustomLink} to="/signup">Sign Up</Nav.Link>
+                                    <Nav.Link as={CustomLink} to="/login">Login</Nav.Link>
                                 </Nav>
                         }
                     </Nav>
