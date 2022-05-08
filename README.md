@@ -1,25 +1,17 @@
-# Sazid's Laptop Store
+# Sazid's Laptop Store Client
 
 ## Live Site Link
 [Sazid's Laptop Store](https://inventory-management-website.web.app/)
 
 ## Built with
-* Client Side
-    * [React](https://reactjs.org)
-    * [React Router](https://reactrouter.com)
-    * [React Bootstrap](https://react-bootstrap.github.io)
-    * [Firebase](https://firebase.google.com)
-    * [React-Firebase Hooks](https://github.com/CSFrequency/react-firebase-hooks)
-    * [React Hook Form](https://react-hook-form.com/)
-    * [React Icons](https://react-icons.github.io/react-icons/)
-    * [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
-* Server Side
-    * [NodeJs](http://nodejs.com/)
-    * [MongoDB](https://www.mongodb.com/)
-    * [cors](https://www.npmjs.com/package/cors)
-    * [dotenv](https://www.npmjs.com/package/dotenv)
-    * [express](https://expressjs.com/)
-    * [nodemon](https://nodemon.io/)
+* [React](https://reactjs.org)
+* [React Router](https://reactrouter.com)
+* [React Bootstrap](https://react-bootstrap.github.io)
+* [Firebase](https://firebase.google.com)
+* [React-Firebase Hooks](https://github.com/CSFrequency/react-firebase-hooks)
+* [React Hook Form](https://react-hook-form.com/)
+* [React Icons](https://react-icons.github.io/react-icons/)
+* [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 
 ## Website Features
 * There is a navbar and a footer with all pages in the website
