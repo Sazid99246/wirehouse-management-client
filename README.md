@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Sazid's Laptop Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Site Link
+[Sazid's Laptop Store](https://inventory-management-website.web.app/)
 
-## Available Scripts
+## Built with
+* Client Side
+    * [React](https://reactjs.org)
+    * [React Router](https://reactrouter.com)
+    * [React Bootstrap](https://react-bootstrap.github.io)
+    * [Firebase](https://firebase.google.com)
+    * [React-Firebase Hooks](https://github.com/CSFrequency/react-firebase-hooks)
+    * [React Hook Form](https://react-hook-form.com/)
+    * [React Icons](https://react-icons.github.io/react-icons/)
+    * [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+* Server Side
+    * [NodeJs](http://nodejs.com/)
+    * [MongoDB](https://www.mongodb.com/)
+    * [cors](https://www.npmjs.com/package/cors)
+    * [dotenv](https://www.npmjs.com/package/dotenv)
+    * [express](https://expressjs.com/)
+    * [nodemon](https://nodemon.io/)
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Website Features
+* There is a navbar and a footer with all pages in the website
+* The site is fully responsive
+* The navbar has dynamic active link styled
+* Homepage
+    * A banner
+    * A section called "inventory" containing 6 inventory products.
+        * Each product has a link button called "update" which will take user to the details page of the product which is a protected route(If a user is logged in, s/he can see the details, but if not, s/he can't see them)
+        * In the bottom of this section, a button caleed "manage inventories" has added which will take the user to the "inventory page".
+    * A section called "people reviews" containing people reviews.
+    * A section called "stay in touch" containing a form for getting offers' email
+* Inventory Page
+    *The Inventory page contains all the products in a tabular format
+    * Each product is a row, every row has product id, image, name, description, price, quantity, a delete button and an update button
+        * If user clicks on the delete button, the product will be deleted both from the UI and from the database
+        * If user clicks on the update button, the button will take him/her to the details page of the product which is private/protected route.
+    * There is a button called "Add Items", which will navigate the user to "Add Item" page
+* Add Item Page
+    * This page is protected and it will not be shown on the navigation if any user is not logged in.
+    * The Add Item page has a simple react hook form and a button called "Add item". If user gives all the information correctly, the item will be added both in the UI and on the database
+* Sign Up Page
+    * There is a sign up page for registering the user on firebase with email/password.
+    * If the user is registered, a verification email will be sent to the user's email address.
+    * If the user is registered, s/he will be navigated to "login" page
+* Login Page
+    * There are 2 ways of login, login with registered email/password and google login.
+    * If the user clicks on the forgot password link, an email will be sent to the user's email addresss.
+    * A logged in user can see many items in the navigation bar like "Manage Items", "Add Items", "My items", his/her email address and a "logout" button
+    * If user clicks on the logout button, the user will be logged out
+* Blogs Page
+    * Blogs Page has the questions answered:
+        * Difference between "javascript" and "nodejs"
+        * When should you use "nodejs" and when should you use "mongodb"
+        * Differences between "sql" and "nosql" databases.
+        * What is the purpose of `jwt` and how does it work
