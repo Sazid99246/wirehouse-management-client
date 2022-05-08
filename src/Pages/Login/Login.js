@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Button, Form, Spinner } from 'react-bootstrap';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import GoogleLogin from './GoogleLogIn/GoogleLogin';
+import { FcGoogle } from 'react-icons/fc'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
+    const [signInWithGoogle, user2, loading2] = useSignInWithGoogle(auth)
     const navigate = useNavigate();
 
     let location = useLocation()
@@ -17,8 +22,15 @@ const Login = () => {
     const handleSignIn = event => {
         event.preventDefault();
     }
-    if (user) {
-        navigate(from, {replace: true})
+    const resetPassword = async () => {
+        await sendPasswordResetEmail(email);
+        toast('Email sent');
+    }
+    if (user || user2) {
+        navigate(from, { replace: true })
+    }
+    if (loading || loading2){
+        return <Spinner animation="border" variant="primary" className='mx-auto my-auto' />
     }
     return (
         <div>
@@ -45,6 +57,12 @@ const Login = () => {
                     />
                 </Form.Group>
                 <Button
+                    variant='link'
+                    onClick={resetPassword}>
+                    Forgot Password?
+                </Button>
+                <br />
+                <Button
                     onClick={() => signInWithEmailAndPassword(email, password)}
                     variant="primary"
                     type="submit"
@@ -56,7 +74,10 @@ const Login = () => {
                 </p>
             </Form>
             <p className='text-center'>or</p>
-            <GoogleLogin/>
+            <div className='text-center'>
+                <button className='bg-light px-3 py-2 fs-2 rounded-pill' onClick={() => signInWithGoogle()}><FcGoogle />  Login with Google</button>
+            </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
