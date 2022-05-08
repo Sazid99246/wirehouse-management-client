@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { MdDeleteForever } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom';
 import './Products.css'
 const Products = () => {
     const [products, setProducts] = useState([])
+    const navigate = useNavigate();
     useEffect(() => {
         fetch('https://desolate-island-13153.herokuapp.com/product')
             .then(res => res.json())
@@ -30,28 +32,35 @@ const Products = () => {
                 })
         }
     }
+    const navigateToProductDetail = id => {
+        navigate(`/inventory/${id}`)
+    }
     return (
         <div>
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <td>Image</td>
-                        <td>Name</td>
-                        <td>Description</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Delete</td>
+                        <th className='text-center'>#</th>
+                        <th className='text-center'>Image</th>
+                        <th className='text-center'>Name</th>
+                        <th className='text-center'>Description</th>
+                        <th className='text-center'>Price</th>
+                        <th className='text-center'>Quantity</th>
+                        <th className='text-center'>Delete</th>
+                        <th className='text-center'>Update</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         products.map(product => <tr key={product._id}>
+                            <td>{product._id}</td>
                             <td><img className='table-img' src={product.image} alt="" /></td>
                             <td>{product.name}</td>
                             <td>{product.description}</td>
                             <td>{product.price}</td>
                             <td>{product.quantity}</td>
                             <td><button onClick={() => deleteProduct(product._id)} className='bg-danger text-white border-0'><MdDeleteForever /></button></td>
+                            <td><Button onClick={()=>navigateToProductDetail(product._id)} variant='primary'>Update</Button></td>
                         </tr>)
                     }
                 </tbody>

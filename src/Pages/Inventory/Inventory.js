@@ -13,7 +13,7 @@ const Inventory = () => {
             <h2 className='text-center'>Choose your favourite products</h2>
             <Products />
             <div className='text-center'>
-                <Button onClick={navigateToAddItems}>Add items</Button>
+                <Button className='mb-2' onClick={navigateToAddItems}>Add items</Button>
             </div>
         </div>
     );

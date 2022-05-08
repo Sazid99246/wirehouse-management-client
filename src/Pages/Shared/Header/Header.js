@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <Navbar expand="lg">
             <Container>
-                <Navbar.Brand as={Link} to="/">Sazid's PC Inventory</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Sazid's Laptop Store</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

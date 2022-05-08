@@ -4,6 +4,8 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -12,13 +14,17 @@ const SignUp = () => {
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
     
-    if (user) {
-        signOut(auth)
-        sendEmailVerification()
-        navigate('/login')
-    }
     const handleCreateUser = event => {
         event.preventDefault();
+    }
+    const handleEmailVerification = async ()=>{
+        await sendEmailVerification();
+        toast('email sent');
+    }
+    if (user) {
+        signOut(auth);
+        handleEmailVerification();
+        navigate('/login')
     }
     return (
         <div>
@@ -62,6 +68,7 @@ const SignUp = () => {
                     <Link to='/login'>Please login</Link>    
                 </p>
             </Form>
+            <ToastContainer/>
         </div>
     );
 };
